@@ -1,9 +1,23 @@
-import { createBrowserRouter } from "react-router";
+// In the name of Allah
+import { createBrowserRouter } from "react-router-dom";
+import CatagoriesNews from "../Components/CatagoriesNews";
 import MainLayout from "../Layout/MainLayout";
+import Home from "../page/Home";
+
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayout/>,
+    element: <MainLayout />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/category/:id",
+        element:<CatagoriesNews/>,
+      },
+    ],
   },
   {
     path: "/auth",
@@ -11,7 +25,6 @@ export const router = createBrowserRouter([
   },
   {
     path: "/news",
-    element: <h1>news layout</h1>,
+    element: <h1>News layout</h1>,
   },
-
 ]);
